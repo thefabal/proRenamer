@@ -51,10 +51,10 @@
             // ssMain
             // 
             this.ssMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.ssMain.Location = new System.Drawing.Point(0, 446);
+            this.ssMain.Location = new System.Drawing.Point(0, 444);
             this.ssMain.Name = "ssMain";
             this.ssMain.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
-            this.ssMain.Size = new System.Drawing.Size(800, 22);
+            this.ssMain.Size = new System.Drawing.Size(800, 24);
             this.ssMain.TabIndex = 1;
             this.ssMain.Text = "statusStrip1";
             // 
