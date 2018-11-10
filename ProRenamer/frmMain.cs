@@ -118,6 +118,10 @@ namespace ProRenamer {
         private static readonly string[] filesizename = { " Bytes", " KB", " MB", " GB", " TB", " PB", " EB", " ZB", " YB" };
 
         public static string coolSize(long size) {
+            if( size == 0 ) {
+                return "";
+            }
+
             int i = (int)Math.Floor( (double)Math.Log(size, 1024 ) );
 
             return Math.Round(size / Math.Pow( 1024, i ), 2) + filesizename[ i ];
