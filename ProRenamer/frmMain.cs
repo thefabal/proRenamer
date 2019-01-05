@@ -73,14 +73,11 @@ namespace ProRenamer {
 
         private bool addFiles( List<string> files ) {
             FileInfo file_info;
-            double audio_duration = -1;
-            string audio_artist = string.Empty;
-            string audio_title = string.Empty;
 
             foreach (string file in files) {
                 file_info = new FileInfo( file );
 
-                if( getAudioInfo( file_info.FullName, file_info.Length, ref audio_duration, ref audio_artist, ref audio_title ) == false ) {
+                if( getAudioInfo( file_info.FullName, file_info.Length, out double audio_duration, out string audio_artist, out string audio_title, out string audio_album ) == false ) {
                     audio_duration = -1;
                     audio_artist = string.Empty;
                     audio_title = string.Empty;
@@ -177,18 +174,13 @@ namespace ProRenamer {
                     break;
 
                 case 1:
-                    string insert = string.Empty;
+                    string insert = cbActionInsert.Text;
 
-                    if( cbActionInsert.SelectedIndex == -1 ) {
-                        insert = cbActionInsert.Text;
-                    } else if( cbActionInsert.SelectedIndex == 0 ) {
-                        double audio_duration = -1;
-                        string audio_artist = string.Empty;
-                        string audio_title = string.Empty;
-
-                        if( getAudioInfo( full_name, (new FileInfo(full_name)).Length, ref audio_duration, ref audio_artist, ref audio_title ) ) {
-                            insert = ( TimeSpan.FromSeconds( audio_duration ) ).ToString( @"hh\.mm\.ss" );
-                        }
+                    if( getAudioInfo( full_name, ( new FileInfo( full_name ) ).Length, out double audio_duration, out string audio_artist, out string audio_title, out string audio_album ) ) {
+                        insert = insert.Replace( "[audio_duration]", ( TimeSpan.FromSeconds( audio_duration ) ).ToString( @"hh\.mm\.ss" ) );
+                        insert = insert.Replace( "[audio_artist]", audio_artist );
+                        insert = insert.Replace( "[audio_title]", audio_title );
+                        insert = insert.Replace( "[audio_album]", audio_album );
                     }
 
                     if( rbActionInsertFromBegin.Checked ) {
@@ -214,7 +206,12 @@ namespace ProRenamer {
             return file_name;
         }
 
-        private bool getAudioInfo( string file_name, long file_size, ref double audio_duration, ref string audio_artist, ref string audio_title ) {
+        private bool getAudioInfo( string file_name, long file_size, out double audio_duration, out string audio_artist, out string audio_title, out string audio_album ) {
+            audio_duration = -1;
+            audio_artist = string.Empty;
+            audio_title = string.Empty;
+            audio_album = string.Empty;
+
             int[ ] sizes = new int[ ] { 12, 13, 15, 17, 19, 20, 26, 31, 5, 6, 5, 5, 0, 0, 0, 0 };
 
             StreamReader sr = new StreamReader( file_name );
@@ -250,6 +247,7 @@ namespace ProRenamer {
                     audio_duration = tfile.Properties.Duration.TotalSeconds;
                     audio_artist = tfile.Tag.AlbumArtists[ 0 ];
                     audio_title = tfile.Tag.Title;
+                    audio_album = tfile.Tag.Album;
 
                     return true;
                 } catch {

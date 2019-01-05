@@ -56,6 +56,11 @@
             this.pnlLog = new System.Windows.Forms.Panel();
             this.pnlAction = new System.Windows.Forms.Panel();
             this.pnlActionInsert = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.cbActionInsert = new System.Windows.Forms.ComboBox();
             this.rbActionInsertFromEnd = new System.Windows.Forms.RadioButton();
             this.rbActionInsertFromBegin = new System.Windows.Forms.RadioButton();
@@ -71,6 +76,7 @@
             this.tbActionExtension = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbAction = new System.Windows.Forms.ListBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.pnlFiles.SuspendLayout();
@@ -306,6 +312,12 @@
             this.pnlActionInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlActionInsert.Controls.Add(this.label11);
+            this.pnlActionInsert.Controls.Add(this.label10);
+            this.pnlActionInsert.Controls.Add(this.label9);
+            this.pnlActionInsert.Controls.Add(this.label8);
+            this.pnlActionInsert.Controls.Add(this.label7);
+            this.pnlActionInsert.Controls.Add(this.label6);
             this.pnlActionInsert.Controls.Add(this.cbActionInsert);
             this.pnlActionInsert.Controls.Add(this.rbActionInsertFromEnd);
             this.pnlActionInsert.Controls.Add(this.rbActionInsertFromBegin);
@@ -317,11 +329,59 @@
             this.pnlActionInsert.Size = new System.Drawing.Size(437, 255);
             this.pnlActionInsert.TabIndex = 6;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(45, 159);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(183, 13);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "- [audio_title] for IDv1 or IDv2 title tag";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(45, 146);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(195, 13);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "- [audio_artist] for IDv1 or IDv2 artist tag";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(45, 133);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(247, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "- [audio_duration] for audio and video file\'s duration";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 120);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "- Use";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 107);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Note :";
+            // 
             // cbActionInsert
             // 
             this.cbActionInsert.FormattingEnabled = true;
             this.cbActionInsert.Items.AddRange(new object[] {
-            "Audio / Video Duration"});
+            "[audio_duration]",
+            "[audio_artist]",
+            "[audio_title]",
+            "[audio_album]"});
             this.cbActionInsert.Location = new System.Drawing.Point(44, 22);
             this.cbActionInsert.Name = "cbActionInsert";
             this.cbActionInsert.Size = new System.Drawing.Size(150, 21);
@@ -465,6 +525,15 @@
             this.lbAction.TabIndex = 0;
             this.lbAction.SelectedIndexChanged += new System.EventHandler(this.lbAction_SelectedIndexChanged);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(45, 172);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(207, 13);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "- [audio_album] for IDv1 or IDv2 album tag";
+            // 
             // frmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -540,6 +609,12 @@
         private System.Windows.Forms.NumericUpDown nudActionInsertPosition;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }
 
