@@ -56,6 +56,7 @@
             this.pnlLog = new System.Windows.Forms.Panel();
             this.pnlAction = new System.Windows.Forms.Panel();
             this.pnlActionInsert = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -76,7 +77,6 @@
             this.tbActionExtension = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbAction = new System.Windows.Forms.ListBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.pnlFiles.SuspendLayout();
@@ -329,6 +329,15 @@
             this.pnlActionInsert.Size = new System.Drawing.Size(437, 255);
             this.pnlActionInsert.TabIndex = 6;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(45, 172);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(207, 13);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "- [audio_album] for IDv1 or IDv2 album tag";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -381,7 +390,11 @@
             "[audio_duration]",
             "[audio_artist]",
             "[audio_title]",
-            "[audio_album]"});
+            "[audio_album]",
+            "[directory_1]",
+            "[directory_2]",
+            "[directory_3]",
+            "[directory_4]"});
             this.cbActionInsert.Location = new System.Drawing.Point(44, 22);
             this.cbActionInsert.Name = "cbActionInsert";
             this.cbActionInsert.Size = new System.Drawing.Size(150, 21);
@@ -524,15 +537,6 @@
             this.lbAction.Size = new System.Drawing.Size(157, 287);
             this.lbAction.TabIndex = 0;
             this.lbAction.SelectedIndexChanged += new System.EventHandler(this.lbAction_SelectedIndexChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(45, 172);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(207, 13);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "- [audio_album] for IDv1 or IDv2 album tag";
             // 
             // frmMain
             // 

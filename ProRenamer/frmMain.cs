@@ -175,12 +175,23 @@ namespace ProRenamer {
 
                 case 1:
                     string insert = cbActionInsert.Text;
+                    string path = string.Empty;
+                    int index = 0;
 
                     if( getAudioInfo( full_name, ( new FileInfo( full_name ) ).Length, out double audio_duration, out string audio_artist, out string audio_title, out string audio_album ) ) {
                         insert = insert.Replace( "[audio_duration]", ( TimeSpan.FromSeconds( audio_duration ) ).ToString( @"hh\.mm\.ss" ) );
                         insert = insert.Replace( "[audio_artist]", audio_artist );
                         insert = insert.Replace( "[audio_title]", audio_title );
                         insert = insert.Replace( "[audio_album]", audio_album );
+
+                        path = getParentDirPath( full_name );
+                        int i = 1;
+                        while( (index = path.LastIndexOfAny( new char[ ] { '\\', '/' } )) != -1 ) {
+                            insert = insert.Replace( "[directory_" + i + "]", path.Substring( index + 1 ));
+                            path = path.Substring( 0, index );
+
+                            i++;
+                        }
                     }
 
                     if( rbActionInsertFromBegin.Checked ) {
@@ -204,6 +215,15 @@ namespace ProRenamer {
             }
 
             return file_name;
+        }
+
+        private string getParentDirPath( string path ) {
+            int index = path.Trim( '/', '\\' ).LastIndexOfAny( new char[ ] { '\\', '/' } );
+
+            if( index >= 0 )
+                return path.Remove( index );
+            else
+                return "";
         }
 
         private bool getAudioInfo( string file_name, long file_size, out double audio_duration, out string audio_artist, out string audio_title, out string audio_album ) {
